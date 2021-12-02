@@ -78,7 +78,7 @@ export class SnsgatewayApplication extends BootMixin(
       });
     }
 
-    if (process.env.SNSGATEWAY_USER != '' && process.env.SNSGATEWAY_PASSWORD != '') {
+    if (process.env.SNSGATEWAY_USER && process.env.SNSGATEWAY_PASSWORD) {
       console.log("Creating user from proces env");
       await userRepo.create({username: process.env.SNSGATEWAY_USER, password: process.env.SNSGATEWAY_PASSWORD});
     }
