@@ -1,4 +1,4 @@
-# snsgateway
+# sns-loopback-gateway
 
 This application is generated using [LoopBack 4 CLI](https://loopback.io/doc/en/lb4/Command-line-interface.html) with the
 [initial project layout](https://loopback.io/doc/en/lb4/Loopback-application-layout.html).
@@ -108,7 +108,7 @@ docker build -t sns-loopback-gateway .
 
 Then run it.
 ```bash
-docker run -p 3100:3100 --mount type=bind,source=\"$(pwd)\"/users.json,target=/home/node/app/users.json,readonly --mount type=bind,source=\"$(pwd)\"/.awscredentials,target=/home/node/app/.awscredentials,readonly -d sns-loopback-gateway
+docker run -p 3100:3100 --mount type=bind,source="$(pwd)"/users.json,target=/home/node/app/users.json,readonly --mount type=bind,source="$(pwd)"/.awscredentials,target=/home/node/app/.awscredentials,readonly -d sns-loopback-gateway
 ```
 ## Rebuild the project
 
