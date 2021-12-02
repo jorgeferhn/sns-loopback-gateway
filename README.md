@@ -18,6 +18,37 @@ To only install resolved dependencies in `package-lock.json`:
 npm ci
 ```
 
+## Prerequisites
+
+### AWS Credentials
+To test and/or use the AWS Services you must first create a file .awscredentials in the root of the project or where the executable is being run in order for the AWS SDK to pick up your AWS Access and Secret Keys.
+
+The format of this file must be JSON and the structure is as follows:
+
+```javascript
+{
+  "awsAccessKey":"myAccessKey",
+  "awsSecretKey":"mySecreyKey",
+  "awsRegion":"us-east-1"
+}
+```
+
+### Basic Auth
+The service is protected by Basic Authorization header. In order to 'inject' the users who are authorized to use the API they must be created in a seperate JSON file in the root of the directory as 'users.json' in which an example is provided. The JSON file contains an array of users.
+
+```javascript
+[
+  {
+    "username": "user1",
+    "password": "sup3rp4ssw0rd"
+  },
+  {
+    "username": "user2",
+    "password": "sup3rp4ssw0rd2"
+  }
+]
+```
+
 ## Run the application
 
 ```sh
