@@ -57,7 +57,9 @@ npm start
 
 You can also run `node .` to skip the build step.
 
-Open http://127.0.0.1:3000 in your browser.
+Open http://127.0.0.1:3100 in your browser. You may change the port in the application config in the file application.ts
+
+https://github.com/jorgeferhn/sns-loopback-gateway/blob/ab613a7405fdb81cac4425ebd574c01c286d3533/src/application.ts#L21-L31
 
 ## Rebuild the project
 
