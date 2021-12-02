@@ -11,4 +11,4 @@ services:
         max-size: "10m"
     volumes:
       - './users.json:/home/node/app/users.json:ro'
-      - './awscredentials.json:/home/node/app/.awscredentials:ro'
+      - './awscredentials:/home/node/app/.awscredentials:ro'
