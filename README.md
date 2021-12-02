@@ -1,6 +1,6 @@
 # sns-loopback-gateway
 
-Simple Loopback 4 API microservice to interact with AWS SNS SMS Publish API to be used together with other microservices.
+Simple Loopback 4 API microservice to interact with AWS SNS Publish API to send SMS Messages, for now, to be used together with other microservices. Additional SNS functionality will be added periodically.
 
 ## Install dependencies
 
