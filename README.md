@@ -57,10 +57,47 @@ npm start
 
 You can also run `node .` to skip the build step.
 
-Open http://127.0.0.1:3100 in your browser. You may change the port in the application config in the file application.ts
+Open http://127.0.0.1:3100 in your browser. You may change the port in the application config in the file [src/application.ts](https://github.com/jorgeferhn/sns-loopback-gateway/blob/ab613a7405fdb81cac4425ebd574c01c286d3533/src/application.ts#L21-L31)
 
-https://github.com/jorgeferhn/sns-loopback-gateway/blob/ab613a7405fdb81cac4425ebd574c01c286d3533/src/application.ts#L21-L31
+## API Endpoints
 
+API Endpoints are protected by @loopback/authentication using Basic Authorization header. In order to use the APIs a valid Basic Authorization header must be included in every request.
+
+### /ping (GET)
+A simple ping to test that the service is up.
+
+### /testConnection (GET)
+Test the AWS Credentials using AWS STS Client. If a valid credential is provided it, valid returns true, else it returns false and the error message.
+
+#### Example response
+```javascript
+{
+  "valid": true,
+  "errorMessage": null
+}
+```
+
+### /sms (POST)
+Send an SMS Message to a PhoneNumber provided in the request body. Request body must be in JSON following this schema. Both parameters are required.
+```javascript
+{
+  "Message": "string", //Up to 140 ASCII characters
+  "PhoneNumber": "string" //PHONE_NUMBER, in the E.164 phone number structure
+}
+```
+For more information refer to https://docs.aws.amazon.com/sns/latest/api/API_Publish.html
+
+If the SMS Message is sent successfully the response body contains a sent property with true. Else, the sent property returns false and the error message is provided. 
+
+#### Example response 
+```javascript
+{
+  sent: true,
+  Message: "The message being sent",
+  PhoneNumber: "+50499999999",
+  errorMessage: null
+}
+```
 ## Rebuild the project
 
 To incrementally build the project:
