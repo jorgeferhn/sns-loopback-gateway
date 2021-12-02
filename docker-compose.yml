@@ -1,0 +1,14 @@
+version: '3'
+services:
+  snsloopbackgateway:
+    image: jorgefer00/sns-loopback-gateway:latest
+    restart: always
+    ports:
+      - 3100:3100
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+    volumes:
+      - './users.json:/home/node/app/users.json:ro'
+      - './awscredentials.json:/home/node/app/.awscredentials:ro'
