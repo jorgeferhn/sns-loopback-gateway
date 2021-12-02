@@ -26,7 +26,7 @@
     "posttest": "npm run lint",
     "test:dev": "lb-mocha --allow-console-logs dist/__tests__/**/*.js && npm run posttest",
     "docker:build": "docker build -t sns-loopback-gateway .",
-    "docker:run": "docker run -p 3100:3100 -d sns-loopback-gateway",
+    "docker:run": "docker run -p 3100:3100 --mount type=bind,source=\"$(pwd)\"/users.json,target=/home/node/app/users.json,readonly --mount type=bind,source=\"$(pwd)\"/.awscredentials,target=/home/node/app/.awscredentials,readonly -d sns-loopback-gateway",
     "premigrate": "npm run build",
     "migrate": "node ./dist/migrate",
     "preopenapi-spec": "npm run build",

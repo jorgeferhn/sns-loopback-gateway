@@ -87,9 +87,9 @@ Send an SMS Message to a PhoneNumber provided in the request body. Request body 
 ```
 For more information refer to https://docs.aws.amazon.com/sns/latest/api/API_Publish.html
 
-If the SMS Message is sent successfully the response body contains a sent property with true. Else, the sent property returns false and the error message is provided. 
+If the SMS Message is sent successfully the response body contains a sent property with true. Else, the sent property returns false and the error message is provided.
 
-#### Example response 
+#### Example response
 ```javascript
 {
   sent: true,
@@ -97,6 +97,18 @@ If the SMS Message is sent successfully the response body contains a sent proper
   PhoneNumber: "+50499999999",
   errorMessage: null
 }
+```
+
+## Run from docker
+Build the docker container
+
+```bash
+docker build -t sns-loopback-gateway .
+```
+
+Then run it.
+```bash
+docker run -p 3100:3100 --mount type=bind,source=\"$(pwd)\"/users.json,target=/home/node/app/users.json,readonly --mount type=bind,source=\"$(pwd)\"/.awscredentials,target=/home/node/app/.awscredentials,readonly -d sns-loopback-gateway
 ```
 ## Rebuild the project
 
