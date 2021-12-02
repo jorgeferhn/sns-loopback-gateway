@@ -99,7 +99,15 @@ If the SMS Message is sent successfully the response body contains a sent proper
 ```
 
 ## Run from docker
-Build the docker container
+
+You may use the already configured docker-compose.yml file and use docker-compose to get the docker image running. This will download the latest sns-loopback-gateway docker image from my repository and run it. The docker-compose.yml will automatically mount readonly the .awscredentials and users.json file from the current directory it is being run.
+
+```bash
+docker-compose up -d
+```
+
+
+Or build the docker container
 
 ```bash
 docker build -t sns-loopback-gateway .
